@@ -5,9 +5,11 @@ import OnboardingPage from './features/onboarding';
 import ChroniclePage from './features/chronicle';
 import ReportsPage from './features/reports';
 import TeamPage from './features/team';
+import { useDemo } from './store/demoStore';
 
 function AppIndex() {
-  return <Navigate to="/app/onboarding" replace />;
+  const built = useDemo((s) => s.session.chronicleBuiltAt);
+  return <Navigate to={built ? '/app/chronicle' : '/app/onboarding'} replace />;
 }
 
 export const routes: RouteObject[] = [
@@ -28,3 +30,4 @@ export const routes: RouteObject[] = [
 ];
 
 export const router = createBrowserRouter(routes);
+

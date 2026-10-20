@@ -2,7 +2,7 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { CalendarClock, FileText, Inbox, ListTree, RotateCcw, Target, Users } from 'lucide-react';
 import Logo from '../brand/Logo';
-import { demoMeta, demoResults } from '../data/demo';
+import { selectInboxCount, useDemo } from '../store/demoStore';
 import { cx } from '../ui/cx';
 
 /** Дней до конца цикла ревью — константа демо. */
@@ -31,10 +31,13 @@ function Section({ children }: { children: ReactNode }) {
 
 export default function Sidebar() {
   const navigate = useNavigate();
-  const inboxCount = demoResults.filter((r) => r.status === 'suggested').length;
-  const reportsCount = 0;
+  const demoMeta = useDemo((s) => s.meta);
+  const inboxCount = useDemo(selectInboxCount);
+  const reportsCount = useDemo((s) => s.reports.length);
+  const resetDemo = useDemo((s) => s.resetDemo);
 
   const onReset = () => {
+    resetDemo();
     navigate('/app/onboarding');
   };
 
@@ -109,3 +112,4 @@ export default function Sidebar() {
     </aside>
   );
 }
+
