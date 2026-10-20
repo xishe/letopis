@@ -1,0 +1,1874 @@
+{
+  "meta": {
+    "person": "Иван Петров",
+    "role": "Backend-инженер",
+    "team": "Backend",
+    "company": "Acme",
+    "manager": "Анна Смирнова",
+    "periodStart": "2026-04-01",
+    "periodEnd": "2026-09-30",
+    "reviewName": "Ревью · осень 2026",
+    "jiraCount": 164,
+    "mrCount": 52
+  },
+  "results": [
+    {
+      "id": "R-1",
+      "title": "Ускорение поиска по каталогу",
+      "summary": "Кеш выдачи в Redis, пагинация по курсору и асинхронная подгрузка фасетов. Каталог перестал деградировать в часы пик.",
+      "status": "confirmed",
+      "effect": "p95 800 → 450 мс",
+      "items": [
+        {
+          "id": "LET-20",
+          "source": "jira",
+          "type": "Task",
+          "title": "Дашборд latency каталога в Grafana",
+          "url": "https://jira.example.com/browse/LET-20",
+          "closedAt": "2026-05-15"
+        },
+        {
+          "id": "LET-15",
+          "source": "jira",
+          "type": "Story",
+          "title": "Асинхронная подгрузка фасетов фильтров",
+          "url": "https://jira.example.com/browse/LET-15",
+          "closedAt": "2026-05-06"
+        },
+        {
+          "id": "LET-18",
+          "source": "jira",
+          "type": "Task",
+          "title": "Прогрев кеша после деплоя",
+          "url": "https://jira.example.com/browse/LET-18",
+          "closedAt": "2026-04-29"
+        },
+        {
+          "id": "!10",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Прогрев кеша после деплоя",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/10",
+          "closedAt": "2026-04-29"
+        },
+        {
+          "id": "LET-17",
+          "source": "jira",
+          "type": "Task",
+          "title": "Нагрузочный тест каталога в k6",
+          "url": "https://jira.example.com/browse/LET-17",
+          "closedAt": "2026-04-15"
+        },
+        {
+          "id": "LET-14",
+          "source": "jira",
+          "type": "Task",
+          "title": "Профилирование эндпоинта /catalog/search",
+          "url": "https://jira.example.com/browse/LET-14",
+          "closedAt": "2026-04-15"
+        },
+        {
+          "id": "!8",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-17: Нагрузочный тест каталога в k6",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/8",
+          "closedAt": "2026-04-15"
+        },
+        {
+          "id": "LET-13",
+          "source": "jira",
+          "type": "Task",
+          "title": "Убрать N+1 в сериализации карточки товара",
+          "url": "https://jira.example.com/browse/LET-13",
+          "closedAt": "2026-04-14"
+        },
+        {
+          "id": "LET-16",
+          "source": "jira",
+          "type": "Task",
+          "title": "Сжатие ответов gzip для списков",
+          "url": "https://jira.example.com/browse/LET-16",
+          "closedAt": "2026-04-13"
+        },
+        {
+          "id": "LET-12",
+          "source": "jira",
+          "type": "Story",
+          "title": "Пагинация по курсору вместо offset",
+          "url": "https://jira.example.com/browse/LET-12",
+          "closedAt": "2026-04-06"
+        },
+        {
+          "id": "!6",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-12: Пагинация по курсору вместо offset",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/6",
+          "closedAt": "2026-04-04"
+        },
+        {
+          "id": "LET-10",
+          "source": "jira",
+          "type": "Story",
+          "title": "Кеширование выдачи каталога в Redis",
+          "url": "https://jira.example.com/browse/LET-10",
+          "closedAt": "2026-04-03"
+        },
+        {
+          "id": "LET-11",
+          "source": "jira",
+          "type": "Task",
+          "title": "Индекс по (category_id, created_at) для списка товаров",
+          "url": "https://jira.example.com/browse/LET-11",
+          "closedAt": "2026-04-02"
+        },
+        {
+          "id": "!5",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Индекс по (category_id, created_at) для списка товаров",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/5",
+          "closedAt": "2026-04-02"
+        },
+        {
+          "id": "LET-19",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Инвалидация кеша при обновлении цены",
+          "url": "https://jira.example.com/browse/LET-19",
+          "closedAt": "2026-04-01"
+        },
+        {
+          "id": "!4",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-10: Кеширование выдачи каталога в Redis",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/4",
+          "closedAt": "2026-04-01"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Дашборд Grafana · p95 /catalog/search",
+          "url": "https://grafana.example.com/d/catalog-latency"
+        }
+      ],
+      "visibleToManager": false,
+      "date": "2026-05-15"
+    },
+    {
+      "id": "R-2",
+      "title": "Снижение стоимости облачной инфраструктуры",
+      "summary": "Аудит неиспользуемых ресурсов, перенос холодных данных в объектное хранилище, автомасштабирование воркеров очередей.",
+      "status": "confirmed",
+      "effect": "−380 тыс. ₽ в месяц",
+      "items": [
+        {
+          "id": "LET-56",
+          "source": "jira",
+          "type": "Task",
+          "title": "Отключение ночью тестовых стендов",
+          "url": "https://jira.example.com/browse/LET-56",
+          "closedAt": "2026-07-15"
+        },
+        {
+          "id": "!33",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Отключение ночью тестовых стендов",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/33",
+          "closedAt": "2026-07-15"
+        },
+        {
+          "id": "LET-52",
+          "source": "jira",
+          "type": "Task",
+          "title": "Перевести dev-окружения на spot-инстансы",
+          "url": "https://jira.example.com/browse/LET-52",
+          "closedAt": "2026-07-10"
+        },
+        {
+          "id": "LET-55",
+          "source": "jira",
+          "type": "Task",
+          "title": "Right-sizing подов по данным профилирования",
+          "url": "https://jira.example.com/browse/LET-55",
+          "closedAt": "2026-07-09"
+        },
+        {
+          "id": "!31",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Перевести dev-окружения на spot-инстансы",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/31",
+          "closedAt": "2026-07-09"
+        },
+        {
+          "id": "LET-51",
+          "source": "jira",
+          "type": "Story",
+          "title": "Аудит неиспользуемых ресурсов в облаке",
+          "url": "https://jira.example.com/browse/LET-51",
+          "closedAt": "2026-07-06"
+        },
+        {
+          "id": "!29",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-51: Аудит неиспользуемых ресурсов в облаке",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/29",
+          "closedAt": "2026-07-06"
+        },
+        {
+          "id": "!28",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-51: Аудит неиспользуемых ресурсов в облаке",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/28",
+          "closedAt": "2026-07-04"
+        },
+        {
+          "id": "LET-53",
+          "source": "jira",
+          "type": "Story",
+          "title": "Автомасштабирование воркеров очередей",
+          "url": "https://jira.example.com/browse/LET-53",
+          "closedAt": "2026-07-01"
+        },
+        {
+          "id": "!27",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-53: Автомасштабирование воркеров очередей",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/27",
+          "closedAt": "2026-07-01"
+        },
+        {
+          "id": "LET-57",
+          "source": "jira",
+          "type": "Story",
+          "title": "Перенос холодных данных в объектное хранилище",
+          "url": "https://jira.example.com/browse/LET-57",
+          "closedAt": "2026-06-10"
+        },
+        {
+          "id": "LET-54",
+          "source": "jira",
+          "type": "Task",
+          "title": "Политика хранения логов 30 дней",
+          "url": "https://jira.example.com/browse/LET-54",
+          "closedAt": "2026-06-10"
+        },
+        {
+          "id": "!19",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-54 Политика хранения логов 30 дней",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/19",
+          "closedAt": "2026-06-10"
+        },
+        {
+          "id": "LET-60",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Утечка неиспользуемых томов после удаления подов",
+          "url": "https://jira.example.com/browse/LET-60",
+          "closedAt": "2026-06-09"
+        },
+        {
+          "id": "LET-59",
+          "source": "jira",
+          "type": "Task",
+          "title": "Отчёт FinOps для руководителей",
+          "url": "https://jira.example.com/browse/LET-59",
+          "closedAt": "2026-06-09"
+        },
+        {
+          "id": "!17",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-57: Перенос холодных данных в объектное хранилище",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/17",
+          "closedAt": "2026-06-08"
+        },
+        {
+          "id": "!16",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-59: Отчёт FinOps для руководителей",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/16",
+          "closedAt": "2026-06-08"
+        },
+        {
+          "id": "LET-58",
+          "source": "jira",
+          "type": "Task",
+          "title": "Теги стоимости по командам",
+          "url": "https://jira.example.com/browse/LET-58",
+          "closedAt": "2026-05-29"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Отчёт FinOps за июль",
+          "url": "https://confluence.example.com/display/FIN/2026-07"
+        }
+      ],
+      "visibleToManager": false,
+      "date": "2026-07-15"
+    },
+    {
+      "id": "R-3",
+      "title": "Выделение сервиса заказов из монолита",
+      "summary": "Модуль скидок и статусы заказа вынесены в отдельные сервисы; трафик переключён по фиче-флагу без простоя.",
+      "status": "confirmed",
+      "effect": "Покрытие тестами модуля 91%",
+      "items": [
+        {
+          "id": "LET-65",
+          "source": "jira",
+          "type": "Task",
+          "title": "Удалить мёртвый код в OrderManager",
+          "url": "https://jira.example.com/browse/LET-65",
+          "closedAt": "2026-07-27"
+        },
+        {
+          "id": "!35",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-65: Удалить мёртвый код в OrderManager",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/35",
+          "closedAt": "2026-07-26"
+        },
+        {
+          "id": "LET-61",
+          "source": "jira",
+          "type": "Story",
+          "title": "Выделить модуль расчёта скидок из монолита",
+          "url": "https://jira.example.com/browse/LET-61",
+          "closedAt": "2026-07-21"
+        },
+        {
+          "id": "LET-67",
+          "source": "jira",
+          "type": "Task",
+          "title": "Идемпотентность создания заказа",
+          "url": "https://jira.example.com/browse/LET-67",
+          "closedAt": "2026-07-17"
+        },
+        {
+          "id": "LET-66",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Дублирование события при повторной отправке заказа",
+          "url": "https://jira.example.com/browse/LET-66",
+          "closedAt": "2026-07-17"
+        },
+        {
+          "id": "!34",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-66: Дублирование события при повторной отправке заказа",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/34",
+          "closedAt": "2026-07-16"
+        },
+        {
+          "id": "LET-62",
+          "source": "jira",
+          "type": "Story",
+          "title": "Отдельный сервис статусов заказа",
+          "url": "https://jira.example.com/browse/LET-62",
+          "closedAt": "2026-07-09"
+        },
+        {
+          "id": "LET-68",
+          "source": "jira",
+          "type": "Task",
+          "title": "Контрактные тесты между сервисами",
+          "url": "https://jira.example.com/browse/LET-68",
+          "closedAt": "2026-07-03"
+        },
+        {
+          "id": "LET-63",
+          "source": "jira",
+          "type": "Task",
+          "title": "Контракты событий заказа в схему Avro",
+          "url": "https://jira.example.com/browse/LET-63",
+          "closedAt": "2026-06-26"
+        },
+        {
+          "id": "LET-64",
+          "source": "jira",
+          "type": "Task",
+          "title": "Миграция чтения статусов на новый сервис",
+          "url": "https://jira.example.com/browse/LET-64",
+          "closedAt": "2026-06-25"
+        },
+        {
+          "id": "!25",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Контракты событий заказа в схему Avro",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/25",
+          "closedAt": "2026-06-24"
+        },
+        {
+          "id": "LET-69",
+          "source": "jira",
+          "type": "Story",
+          "title": "Переключение трафика на новый сервис по фиче-флагу",
+          "url": "https://jira.example.com/browse/LET-69",
+          "closedAt": "2026-06-18"
+        },
+        {
+          "id": "LET-71",
+          "source": "jira",
+          "type": "Task",
+          "title": "Откат фиче-флага после проверки метрик",
+          "url": "https://jira.example.com/browse/LET-71",
+          "closedAt": "2026-06-17"
+        },
+        {
+          "id": "!21",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-69 Переключение трафика на новый сервис по фиче-флагу",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/21",
+          "closedAt": "2026-06-16"
+        },
+        {
+          "id": "LET-70",
+          "source": "jira",
+          "type": "Task",
+          "title": "Документация по границам сервисов",
+          "url": "https://jira.example.com/browse/LET-70",
+          "closedAt": "2026-06-15"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Отчёт о покрытии в CI",
+          "url": "https://gitlab.example.com/backend/orders/-/coverage"
+        }
+      ],
+      "visibleToManager": false,
+      "date": "2026-07-27"
+    },
+    {
+      "id": "R-4",
+      "title": "Интеграция платёжного шлюза PayLine",
+      "summary": "Клиент API с ретраями, оплата картой и постепенное включение по проценту трафика.",
+      "status": "confirmed",
+      "effect": "Конверсия оплаты +3,5%",
+      "items": [
+        {
+          "id": "LET-89",
+          "source": "jira",
+          "type": "Story",
+          "title": "Постепенное включение PayLine по процентам трафика",
+          "url": "https://jira.example.com/browse/LET-89",
+          "closedAt": "2026-08-25"
+        },
+        {
+          "id": "LET-85",
+          "source": "jira",
+          "type": "Task",
+          "title": "Сверка транзакций PayLine с бухгалтерией",
+          "url": "https://jira.example.com/browse/LET-85",
+          "closedAt": "2026-08-25"
+        },
+        {
+          "id": "!52",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-89: Постепенное включение PayLine по процентам трафика",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/52",
+          "closedAt": "2026-08-24"
+        },
+        {
+          "id": "LET-87",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Некорректная сумма при возврате частичной оплаты",
+          "url": "https://jira.example.com/browse/LET-87",
+          "closedAt": "2026-08-17"
+        },
+        {
+          "id": "LET-90",
+          "source": "jira",
+          "type": "Task",
+          "title": "Мониторинг успешности PayLine",
+          "url": "https://jira.example.com/browse/LET-90",
+          "closedAt": "2026-08-11"
+        },
+        {
+          "id": "!49",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-90: Мониторинг успешности PayLine",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/49",
+          "closedAt": "2026-08-11"
+        },
+        {
+          "id": "LET-83",
+          "source": "jira",
+          "type": "Story",
+          "title": "Оплата по карте через PayLine",
+          "url": "https://jira.example.com/browse/LET-83",
+          "closedAt": "2026-08-06"
+        },
+        {
+          "id": "!45",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-83: Оплата по карте через PayLine",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/45",
+          "closedAt": "2026-08-06"
+        },
+        {
+          "id": "!44",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-83: Оплата по карте через PayLine",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/44",
+          "closedAt": "2026-08-05"
+        },
+        {
+          "id": "LET-82",
+          "source": "jira",
+          "type": "Story",
+          "title": "Клиент API PayLine с ретраями",
+          "url": "https://jira.example.com/browse/LET-82",
+          "closedAt": "2026-08-04"
+        },
+        {
+          "id": "!43",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-82: Клиент API PayLine с ретраями",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/43",
+          "closedAt": "2026-08-04"
+        },
+        {
+          "id": "LET-91",
+          "source": "jira",
+          "type": "Task",
+          "title": "Документация по интеграции",
+          "url": "https://jira.example.com/browse/LET-91",
+          "closedAt": "2026-07-28"
+        },
+        {
+          "id": "LET-88",
+          "source": "jira",
+          "type": "Task",
+          "title": "Поддержка 3-D Secure 2",
+          "url": "https://jira.example.com/browse/LET-88",
+          "closedAt": "2026-07-17"
+        },
+        {
+          "id": "LET-86",
+          "source": "jira",
+          "type": "Task",
+          "title": "Тестовый стенд и песочница PayLine",
+          "url": "https://jira.example.com/browse/LET-86",
+          "closedAt": "2026-07-14"
+        },
+        {
+          "id": "LET-84",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обработка вебхуков PayLine",
+          "url": "https://jira.example.com/browse/LET-84",
+          "closedAt": "2026-07-08"
+        },
+        {
+          "id": "!30",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-84: Обработка вебхуков PayLine",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/30",
+          "closedAt": "2026-07-07"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Дашборд конверсии оплаты",
+          "url": "https://grafana.example.com/d/payments-conversion"
+        },
+        {
+          "label": "Отзыв руководителя продукта",
+          "url": "https://confluence.example.com/display/PAY/feedback"
+        }
+      ],
+      "visibleToManager": false,
+      "date": "2026-08-25"
+    },
+    {
+      "id": "R-5",
+      "title": "SLO и алерты для платёжного сервиса",
+      "summary": "Согласованы целевые уровни, настроены алерты по burn rate бюджета ошибок и синтетические проверки платёжного флоу.",
+      "status": "confirmed",
+      "effect": "SLO: доступность 99,95%, p95 авторизации 700 мс",
+      "items": [
+        {
+          "id": "LET-46",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Ложные срабатывания алерта по таймаутам",
+          "url": "https://jira.example.com/browse/LET-46",
+          "closedAt": "2026-06-26"
+        },
+        {
+          "id": "LET-47",
+          "source": "jira",
+          "type": "Task",
+          "title": "Runbook на падение платежного шлюза",
+          "url": "https://jira.example.com/browse/LET-47",
+          "closedAt": "2026-06-25"
+        },
+        {
+          "id": "LET-45",
+          "source": "jira",
+          "type": "Task",
+          "title": "Интеграция алертов с PagerDuty",
+          "url": "https://jira.example.com/browse/LET-45",
+          "closedAt": "2026-06-24"
+        },
+        {
+          "id": "LET-48",
+          "source": "jira",
+          "type": "Story",
+          "title": "Синтетические проверки платежного флоу",
+          "url": "https://jira.example.com/browse/LET-48",
+          "closedAt": "2026-06-22"
+        },
+        {
+          "id": "LET-41",
+          "source": "jira",
+          "type": "Story",
+          "title": "Определить SLO платежного сервиса",
+          "url": "https://jira.example.com/browse/LET-41",
+          "closedAt": "2026-06-22"
+        },
+        {
+          "id": "!24",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-48: Синтетические проверки платежного флоу",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/24",
+          "closedAt": "2026-06-21"
+        },
+        {
+          "id": "!23",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-48: Синтетические проверки платежного флоу",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/23",
+          "closedAt": "2026-06-20"
+        },
+        {
+          "id": "LET-49",
+          "source": "jira",
+          "type": "Task",
+          "title": "Ежемесячный отчёт по SLO",
+          "url": "https://jira.example.com/browse/LET-49",
+          "closedAt": "2026-06-16"
+        },
+        {
+          "id": "LET-50",
+          "source": "jira",
+          "type": "Task",
+          "title": "Трассировка запросов платежей через OpenTelemetry",
+          "url": "https://jira.example.com/browse/LET-50",
+          "closedAt": "2026-06-11"
+        },
+        {
+          "id": "LET-43",
+          "source": "jira",
+          "type": "Story",
+          "title": "Алерты по burn rate бюджета ошибок",
+          "url": "https://jira.example.com/browse/LET-43",
+          "closedAt": "2026-06-05"
+        },
+        {
+          "id": "LET-42",
+          "source": "jira",
+          "type": "Task",
+          "title": "Метрики успешности платежей в Prometheus",
+          "url": "https://jira.example.com/browse/LET-42",
+          "closedAt": "2026-06-05"
+        },
+        {
+          "id": "LET-44",
+          "source": "jira",
+          "type": "Task",
+          "title": "Дашборд SLO платежей в Grafana",
+          "url": "https://jira.example.com/browse/LET-44",
+          "closedAt": "2026-06-04"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Дашборд SLO платежей",
+          "url": "https://grafana.example.com/d/payments-slo"
+        }
+      ],
+      "visibleToManager": false,
+      "date": "2026-06-26"
+    },
+    {
+      "id": "R-6",
+      "title": "Ускорение CI/CD",
+      "summary": "Кеш зависимостей, параллельный прогон тестов, автодеплой на стейджинг и шаблон пайплайна для новых сервисов.",
+      "status": "confirmed",
+      "effect": "Время прогона тестов −60%",
+      "items": [
+        {
+          "id": "LET-73",
+          "source": "jira",
+          "type": "Task",
+          "title": "Параллельный запуск тестов по шардам",
+          "url": "https://jira.example.com/browse/LET-73",
+          "closedAt": "2026-08-13"
+        },
+        {
+          "id": "LET-80",
+          "source": "jira",
+          "type": "Task",
+          "title": "Секреты из Vault в пайплайне",
+          "url": "https://jira.example.com/browse/LET-80",
+          "closedAt": "2026-08-12"
+        },
+        {
+          "id": "LET-79",
+          "source": "jira",
+          "type": "Task",
+          "title": "Метрики DORA в дашборде",
+          "url": "https://jira.example.com/browse/LET-79",
+          "closedAt": "2026-08-06"
+        },
+        {
+          "id": "LET-77",
+          "source": "jira",
+          "type": "Task",
+          "title": "Канареечный выкат для backend",
+          "url": "https://jira.example.com/browse/LET-77",
+          "closedAt": "2026-08-06"
+        },
+        {
+          "id": "LET-74",
+          "source": "jira",
+          "type": "Task",
+          "title": "Docker-слои: переупорядочить Dockerfile",
+          "url": "https://jira.example.com/browse/LET-74",
+          "closedAt": "2026-08-06"
+        },
+        {
+          "id": "LET-72",
+          "source": "jira",
+          "type": "Story",
+          "title": "Кеширование зависимостей в пайплайне",
+          "url": "https://jira.example.com/browse/LET-72",
+          "closedAt": "2026-08-03"
+        },
+        {
+          "id": "!41",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-72: Кеширование зависимостей в пайплайне",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/41",
+          "closedAt": "2026-08-03"
+        },
+        {
+          "id": "!40",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-72: Кеширование зависимостей в пайплайне",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/40",
+          "closedAt": "2026-08-02"
+        },
+        {
+          "id": "LET-76",
+          "source": "jira",
+          "type": "Task",
+          "title": "Линтеры в pre-commit",
+          "url": "https://jira.example.com/browse/LET-76",
+          "closedAt": "2026-07-29"
+        },
+        {
+          "id": "LET-75",
+          "source": "jira",
+          "type": "Story",
+          "title": "Автодеплой на стейджинг после merge",
+          "url": "https://jira.example.com/browse/LET-75",
+          "closedAt": "2026-07-23"
+        },
+        {
+          "id": "LET-81",
+          "source": "jira",
+          "type": "Story",
+          "title": "Шаблон пайплайна для новых сервисов",
+          "url": "https://jira.example.com/browse/LET-81",
+          "closedAt": "2026-07-01"
+        },
+        {
+          "id": "LET-78",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Флейки в интеграционных тестах платежей",
+          "url": "https://jira.example.com/browse/LET-78",
+          "closedAt": "2026-07-01"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Статистика пайплайнов GitLab",
+          "url": "https://gitlab.example.com/backend/-/pipelines/charts"
+        }
+      ],
+      "visibleToManager": false,
+      "date": "2026-08-13"
+    },
+    {
+      "id": "R-7",
+      "title": "Покрытие тестами критичных сервисов",
+      "summary": "Тесты платёжного сервиса, контрактные тесты внешних API и граничные случаи расчёта налогов.",
+      "status": "confirmed",
+      "effect": "Покрытие 52% → 78%",
+      "items": [
+        {
+          "id": "LET-97",
+          "source": "jira",
+          "type": "Task",
+          "title": "Разбор и починка нестабильных тестов",
+          "url": "https://jira.example.com/browse/LET-97",
+          "closedAt": "2026-09-08"
+        },
+        {
+          "id": "!53",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-97: Разбор и починка нестабильных тестов",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/53",
+          "closedAt": "2026-09-08"
+        },
+        {
+          "id": "LET-100",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Тест зависит от порядка выполнения",
+          "url": "https://jira.example.com/browse/LET-100",
+          "closedAt": "2026-08-26"
+        },
+        {
+          "id": "LET-98",
+          "source": "jira",
+          "type": "Task",
+          "title": "Отчёт о покрытии в merge request",
+          "url": "https://jira.example.com/browse/LET-98",
+          "closedAt": "2026-08-25"
+        },
+        {
+          "id": "LET-94",
+          "source": "jira",
+          "type": "Task",
+          "title": "Тесты на граничные случаи расчёта налогов",
+          "url": "https://jira.example.com/browse/LET-94",
+          "closedAt": "2026-08-10"
+        },
+        {
+          "id": "!47",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-94: Тесты на граничные случаи расчёта налогов",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/47",
+          "closedAt": "2026-08-10"
+        },
+        {
+          "id": "LET-101",
+          "source": "jira",
+          "type": "Task",
+          "title": "Гайд по написанию тестов в команде",
+          "url": "https://jira.example.com/browse/LET-101",
+          "closedAt": "2026-08-07"
+        },
+        {
+          "id": "LET-95",
+          "source": "jira",
+          "type": "Task",
+          "title": "Mutation testing для модуля скидок",
+          "url": "https://jira.example.com/browse/LET-95",
+          "closedAt": "2026-08-06"
+        },
+        {
+          "id": "LET-99",
+          "source": "jira",
+          "type": "Task",
+          "title": "Тесты миграций на копии схемы",
+          "url": "https://jira.example.com/browse/LET-99",
+          "closedAt": "2026-07-30"
+        },
+        {
+          "id": "LET-93",
+          "source": "jira",
+          "type": "Task",
+          "title": "Фабрики тестовых данных",
+          "url": "https://jira.example.com/browse/LET-93",
+          "closedAt": "2026-07-29"
+        },
+        {
+          "id": "!39",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-99: Тесты миграций на копии схемы",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/39",
+          "closedAt": "2026-07-29"
+        },
+        {
+          "id": "!38",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-93: Фабрики тестовых данных",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/38",
+          "closedAt": "2026-07-28"
+        },
+        {
+          "id": "LET-96",
+          "source": "jira",
+          "type": "Story",
+          "title": "Контрактные тесты внешних API",
+          "url": "https://jira.example.com/browse/LET-96",
+          "closedAt": "2026-07-27"
+        },
+        {
+          "id": "!37",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-96: Контрактные тесты внешних API",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/37",
+          "closedAt": "2026-07-27"
+        },
+        {
+          "id": "LET-92",
+          "source": "jira",
+          "type": "Story",
+          "title": "Покрытие тестами сервиса платежей до 80%",
+          "url": "https://jira.example.com/browse/LET-92",
+          "closedAt": "2026-07-23"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Отчёт о покрытии в CI",
+          "url": "https://gitlab.example.com/backend/payments/-/coverage"
+        }
+      ],
+      "visibleToManager": false,
+      "date": "2026-09-08"
+    },
+    {
+      "id": "R-8",
+      "title": "Онбординг новых сотрудников",
+      "summary": "Чек-лист первых 30 дней, руководство «Первый день backend-разработчика» и песочница с обезличенными данными.",
+      "status": "needs_effect",
+      "effect": "",
+      "items": [
+        {
+          "id": "LET-37",
+          "source": "jira",
+          "type": "Task",
+          "title": "Шаблон ADR для архитектурных решений",
+          "url": "https://jira.example.com/browse/LET-37",
+          "closedAt": "2026-06-17"
+        },
+        {
+          "id": "LET-36",
+          "source": "jira",
+          "type": "Task",
+          "title": "Описание доменной модели в wiki",
+          "url": "https://jira.example.com/browse/LET-36",
+          "closedAt": "2026-06-10"
+        },
+        {
+          "id": "LET-33",
+          "source": "jira",
+          "type": "Task",
+          "title": "Список «хороших первых задач» в Jira",
+          "url": "https://jira.example.com/browse/LET-33",
+          "closedAt": "2026-06-08"
+        },
+        {
+          "id": "!18",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-33 Список «хороших первых задач» в Jira",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/18",
+          "closedAt": "2026-06-08"
+        },
+        {
+          "id": "LET-34",
+          "source": "jira",
+          "type": "Story",
+          "title": "Менторская программа: чек-лист на первые 30 дней",
+          "url": "https://jira.example.com/browse/LET-34",
+          "closedAt": "2026-06-04"
+        },
+        {
+          "id": "LET-32",
+          "source": "jira",
+          "type": "Task",
+          "title": "Скрипт bootstrap локального окружения",
+          "url": "https://jira.example.com/browse/LET-32",
+          "closedAt": "2026-06-03"
+        },
+        {
+          "id": "LET-40",
+          "source": "jira",
+          "type": "Task",
+          "title": "Опрос новичков после 30 дней",
+          "url": "https://jira.example.com/browse/LET-40",
+          "closedAt": "2026-05-28"
+        },
+        {
+          "id": "LET-39",
+          "source": "jira",
+          "type": "Story",
+          "title": "Песочница с обезличенными данными для обучения",
+          "url": "https://jira.example.com/browse/LET-39",
+          "closedAt": "2026-05-05"
+        },
+        {
+          "id": "LET-38",
+          "source": "jira",
+          "type": "Task",
+          "title": "Собрать FAQ по доступам и инструментам",
+          "url": "https://jira.example.com/browse/LET-38",
+          "closedAt": "2026-05-04"
+        },
+        {
+          "id": "LET-31",
+          "source": "jira",
+          "type": "Story",
+          "title": "Руководство «Первый день backend-разработчика»",
+          "url": "https://jira.example.com/browse/LET-31",
+          "closedAt": "2026-05-04"
+        },
+        {
+          "id": "!13",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Песочница с обезличенными данными для обучения",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/13",
+          "closedAt": "2026-05-04"
+        },
+        {
+          "id": "!12",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-31: Руководство «Первый день backend-разработчика»",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/12",
+          "closedAt": "2026-05-02"
+        },
+        {
+          "id": "LET-35",
+          "source": "jira",
+          "type": "Task",
+          "title": "Провести 3 воркшопа по архитектуре сервисов",
+          "url": "https://jira.example.com/browse/LET-35",
+          "closedAt": "2026-05-01"
+        },
+        {
+          "id": "!11",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-35 Провести 3 воркшопа по архитектуре сервисов",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/11",
+          "closedAt": "2026-05-01"
+        }
+      ],
+      "evidence": [],
+      "visibleToManager": false,
+      "date": "2026-06-17"
+    },
+    {
+      "id": "R-9",
+      "title": "Миграция на PostgreSQL 16",
+      "summary": "План и репетиция миграции, переключение на логическую репликацию, выкатка на прод.",
+      "status": "confirmed",
+      "effect": "Раздувание таблицы заказов −35%",
+      "items": [
+        {
+          "id": "LET-23",
+          "source": "jira",
+          "type": "Story",
+          "title": "Переход на логическую репликацию для переключения",
+          "url": "https://jira.example.com/browse/LET-23",
+          "closedAt": "2026-06-02"
+        },
+        {
+          "id": "LET-30",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить runbook по восстановлению из бэкапа",
+          "url": "https://jira.example.com/browse/LET-30",
+          "closedAt": "2026-05-19"
+        },
+        {
+          "id": "LET-29",
+          "source": "jira",
+          "type": "Story",
+          "title": "Выкатить PostgreSQL 16 на прод",
+          "url": "https://jira.example.com/browse/LET-29",
+          "closedAt": "2026-05-14"
+        },
+        {
+          "id": "!14",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-29 Выкатить PostgreSQL 16 на прод",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/14",
+          "closedAt": "2026-05-14"
+        },
+        {
+          "id": "LET-27",
+          "source": "jira",
+          "type": "Task",
+          "title": "Настроить autovacuum под новые объёмы",
+          "url": "https://jira.example.com/browse/LET-27",
+          "closedAt": "2026-05-07"
+        },
+        {
+          "id": "LET-24",
+          "source": "jira",
+          "type": "Task",
+          "title": "Проверить совместимость миграций Alembic",
+          "url": "https://jira.example.com/browse/LET-24",
+          "closedAt": "2026-05-06"
+        },
+        {
+          "id": "LET-21",
+          "source": "jira",
+          "type": "Story",
+          "title": "План и репетиция миграции PostgreSQL 14 → 16",
+          "url": "https://jira.example.com/browse/LET-21",
+          "closedAt": "2026-05-06"
+        },
+        {
+          "id": "LET-28",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить образы Postgres в docker-compose",
+          "url": "https://jira.example.com/browse/LET-28",
+          "closedAt": "2026-05-01"
+        },
+        {
+          "id": "!9",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Обновить образы Postgres в docker-compose",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/9",
+          "closedAt": "2026-04-29"
+        },
+        {
+          "id": "LET-22",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить расширения pg_trgm и pgcrypto",
+          "url": "https://jira.example.com/browse/LET-22",
+          "closedAt": "2026-04-24"
+        },
+        {
+          "id": "LET-26",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Падение запроса отчёта из-за изменения планировщика",
+          "url": "https://jira.example.com/browse/LET-26",
+          "closedAt": "2026-04-21"
+        },
+        {
+          "id": "LET-25",
+          "source": "jira",
+          "type": "Task",
+          "title": "Скрипт сверки данных до и после миграции",
+          "url": "https://jira.example.com/browse/LET-25",
+          "closedAt": "2026-04-20"
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Дашборд Postgres · размер таблиц",
+          "url": "https://grafana.example.com/d/pg-bloat"
+        }
+      ],
+      "visibleToManager": false,
+      "date": "2026-06-02"
+    },
+    {
+      "id": "R-10",
+      "title": "Закрытие замечаний security-аудита",
+      "summary": "Токены больше не хранятся в открытом виде, включён rate limiting на публичных эндпоинтах, обновлены зависимости с CVE.",
+      "status": "needs_effect",
+      "effect": "",
+      "items": [
+        {
+          "id": "LET-110",
+          "source": "jira",
+          "type": "Task",
+          "title": "Включить rate limiting на публичных эндпоинтах",
+          "url": "https://jira.example.com/browse/LET-110",
+          "closedAt": "2026-07-13"
+        },
+        {
+          "id": "LET-109",
+          "source": "jira",
+          "type": "Task",
+          "title": "Ограничить права сервисных аккаунтов",
+          "url": "https://jira.example.com/browse/LET-109",
+          "closedAt": "2026-07-13"
+        },
+        {
+          "id": "!32",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-110: Включить rate limiting на публичных эндпоинтах",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/32",
+          "closedAt": "2026-07-12"
+        },
+        {
+          "id": "LET-107",
+          "source": "jira",
+          "type": "Story",
+          "title": "Закрыть замечание аудита: хранение токенов в открытом виде",
+          "url": "https://jira.example.com/browse/LET-107",
+          "closedAt": "2026-07-09"
+        },
+        {
+          "id": "LET-111",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Утечка внутренних ошибок в ответе API",
+          "url": "https://jira.example.com/browse/LET-111",
+          "closedAt": "2026-06-10"
+        },
+        {
+          "id": "LET-108",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить зависимости с уязвимостями CVE",
+          "url": "https://jira.example.com/browse/LET-108",
+          "closedAt": "2026-06-10"
+        },
+        {
+          "id": "!20",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-111: Утечка внутренних ошибок в ответе API",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/20",
+          "closedAt": "2026-06-10"
+        }
+      ],
+      "evidence": [],
+      "visibleToManager": false,
+      "date": "2026-07-13"
+    },
+    {
+      "id": "R-11",
+      "title": "Многоязычные email-уведомления о заказе",
+      "summary": "Письма о заказе уходят на языке клиента, шаблоны вынесены в общую библиотеку.",
+      "status": "suggested",
+      "effect": "",
+      "items": [
+        {
+          "id": "LET-117",
+          "source": "jira",
+          "type": "Story",
+          "title": "Многоязычные email-уведомления о заказе",
+          "url": "https://jira.example.com/browse/LET-117",
+          "closedAt": "2026-10-16"
+        },
+        {
+          "id": "!55",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-117: Многоязычные email-уведомления о заказе",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/55",
+          "closedAt": "2026-10-16"
+        }
+      ],
+      "evidence": [],
+      "visibleToManager": false,
+      "date": "2026-10-16",
+      "suggestedEffect": "Жалоб на непонятные письма стало на 25% меньше"
+    },
+    {
+      "id": "R-12",
+      "title": "Наблюдаемость: единые логи и корреляция запросов",
+      "summary": "Корреляционный идентификатор во всех сервисах, единый формат структурированных логов, удалены устаревшие метрики.",
+      "status": "needs_effect",
+      "effect": "",
+      "items": [
+        {
+          "id": "LET-114",
+          "source": "jira",
+          "type": "Task",
+          "title": "Корреляционный идентификатор запроса во всех сервисах",
+          "url": "https://jira.example.com/browse/LET-114",
+          "closedAt": "2026-06-11"
+        },
+        {
+          "id": "LET-115",
+          "source": "jira",
+          "type": "Task",
+          "title": "Настроить ротацию логов приложений",
+          "url": "https://jira.example.com/browse/LET-115",
+          "closedAt": "2026-05-27"
+        },
+        {
+          "id": "LET-113",
+          "source": "jira",
+          "type": "Task",
+          "title": "Удалить устаревшие метрики и дашборды",
+          "url": "https://jira.example.com/browse/LET-113",
+          "closedAt": "2026-05-14"
+        },
+        {
+          "id": "LET-112",
+          "source": "jira",
+          "type": "Task",
+          "title": "Единый формат структурированных логов",
+          "url": "https://jira.example.com/browse/LET-112",
+          "closedAt": "2026-05-14"
+        }
+      ],
+      "evidence": [],
+      "visibleToManager": false,
+      "date": "2026-06-11"
+    },
+    {
+      "id": "R-13",
+      "title": "Дедупликация клиентов при импорте из CRM",
+      "summary": "Импорт больше не создаёт дубли клиентов при повторной загрузке выгрузки.",
+      "status": "suggested",
+      "effect": "",
+      "items": [
+        {
+          "id": "LET-118",
+          "source": "jira",
+          "type": "Story",
+          "title": "Дедупликация клиентов при импорте из CRM",
+          "url": "https://jira.example.com/browse/LET-118",
+          "closedAt": "2026-10-09"
+        },
+        {
+          "id": "!51",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Дедупликация клиентов при импорте из CRM",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/51",
+          "closedAt": "2026-10-09"
+        }
+      ],
+      "evidence": [],
+      "visibleToManager": false,
+      "date": "2026-10-09"
+    },
+    {
+      "id": "R-14",
+      "title": "Экспорт отчёта о заказах в CSV для бухгалтерии",
+      "summary": "Бухгалтерия выгружает отчёт о заказах сама, без запроса к разработке.",
+      "status": "suggested",
+      "effect": "",
+      "items": [
+        {
+          "id": "LET-116",
+          "source": "jira",
+          "type": "Story",
+          "title": "Экспорт отчёта о заказах в CSV для бухгалтерии",
+          "url": "https://jira.example.com/browse/LET-116",
+          "closedAt": "2026-10-14"
+        }
+      ],
+      "evidence": [],
+      "visibleToManager": false,
+      "date": "2026-10-14"
+    },
+    {
+      "id": "R-15",
+      "title": "Поддержка и исправления",
+      "summary": "Обновления зависимостей, мелкие исправления и правки шаблонов.",
+      "status": "hidden",
+      "effect": "",
+      "items": [
+        {
+          "id": "!59",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Исправление гонки в консьюмере очереди",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/59",
+          "closedAt": "2026-09-25"
+        },
+        {
+          "id": "LET-136",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить версию библиотеки для email-шаблоне",
+          "url": "https://jira.example.com/browse/LET-136",
+          "closedAt": "2026-09-24"
+        },
+        {
+          "id": "LET-129",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить опечатку в тексте проверке адреса",
+          "url": "https://jira.example.com/browse/LET-129",
+          "closedAt": "2026-09-23"
+        },
+        {
+          "id": "LET-167",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить опечатку в тексте импорте товаров",
+          "url": "https://jira.example.com/browse/LET-167",
+          "closedAt": "2026-09-21"
+        },
+        {
+          "id": "LET-153",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить версию библиотеки для API профиля",
+          "url": "https://jira.example.com/browse/LET-153",
+          "closedAt": "2026-09-21"
+        },
+        {
+          "id": "LET-162",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить версию библиотеки для админке",
+          "url": "https://jira.example.com/browse/LET-162",
+          "closedAt": "2026-09-18"
+        },
+        {
+          "id": "LET-141",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Некорректная валидация в фильтре каталога",
+          "url": "https://jira.example.com/browse/LET-141",
+          "closedAt": "2026-09-18"
+        },
+        {
+          "id": "LET-125",
+          "source": "jira",
+          "type": "Task",
+          "title": "Мелкий рефакторинг админке",
+          "url": "https://jira.example.com/browse/LET-125",
+          "closedAt": "2026-09-18"
+        },
+        {
+          "id": "!57",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Обновить версию библиотеки для админке",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/57",
+          "closedAt": "2026-09-18"
+        },
+        {
+          "id": "LET-163",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Некорректная валидация в админке",
+          "url": "https://jira.example.com/browse/LET-163",
+          "closedAt": "2026-09-17"
+        },
+        {
+          "id": "LET-126",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить 500 ошибку в проверке адреса",
+          "url": "https://jira.example.com/browse/LET-126",
+          "closedAt": "2026-09-17"
+        },
+        {
+          "id": "!56",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Форматирование кода",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/56",
+          "closedAt": "2026-09-17"
+        },
+        {
+          "id": "LET-133",
+          "source": "jira",
+          "type": "Task",
+          "title": "Мелкий рефакторинг API профиля",
+          "url": "https://jira.example.com/browse/LET-133",
+          "closedAt": "2026-09-11"
+        },
+        {
+          "id": "LET-131",
+          "source": "jira",
+          "type": "Task",
+          "title": "Мелкий рефакторинг выгрузке отчётов",
+          "url": "https://jira.example.com/browse/LET-131",
+          "closedAt": "2026-09-10"
+        },
+        {
+          "id": "LET-124",
+          "source": "jira",
+          "type": "Task",
+          "title": "Добавить логирование в проверке адреса",
+          "url": "https://jira.example.com/browse/LET-124",
+          "closedAt": "2026-09-04"
+        },
+        {
+          "id": "LET-137",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Некорректная валидация в проверке адреса",
+          "url": "https://jira.example.com/browse/LET-137",
+          "closedAt": "2026-08-28"
+        },
+        {
+          "id": "LET-155",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить опечатку в тексте админке",
+          "url": "https://jira.example.com/browse/LET-155",
+          "closedAt": "2026-08-27"
+        },
+        {
+          "id": "LET-134",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить опечатку в тексте webhook-обработчике",
+          "url": "https://jira.example.com/browse/LET-134",
+          "closedAt": "2026-07-23"
+        },
+        {
+          "id": "LET-157",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Некорректная валидация в webhook-обработчике",
+          "url": "https://jira.example.com/browse/LET-157",
+          "closedAt": "2026-07-21"
+        },
+        {
+          "id": "LET-170",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Некорректная валидация в кабинете клиента",
+          "url": "https://jira.example.com/browse/LET-170",
+          "closedAt": "2026-07-20"
+        },
+        {
+          "id": "LET-138",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Починить падение email-шаблоне при пустом ответе",
+          "url": "https://jira.example.com/browse/LET-138",
+          "closedAt": "2026-07-20"
+        },
+        {
+          "id": "LET-145",
+          "source": "jira",
+          "type": "Task",
+          "title": "Добавить логирование в email-шаблоне",
+          "url": "https://jira.example.com/browse/LET-145",
+          "closedAt": "2026-07-15"
+        },
+        {
+          "id": "LET-142",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить версию библиотеки для корзине",
+          "url": "https://jira.example.com/browse/LET-142",
+          "closedAt": "2026-07-14"
+        },
+        {
+          "id": "LET-168",
+          "source": "jira",
+          "type": "Task",
+          "title": "Мелкий рефакторинг webhook-обработчике",
+          "url": "https://jira.example.com/browse/LET-168",
+          "closedAt": "2026-07-13"
+        },
+        {
+          "id": "LET-165",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить 500 ошибку в API статусов",
+          "url": "https://jira.example.com/browse/LET-165",
+          "closedAt": "2026-07-13"
+        },
+        {
+          "id": "LET-158",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить опечатку в тексте сервисе уведомлений",
+          "url": "https://jira.example.com/browse/LET-158",
+          "closedAt": "2026-07-08"
+        },
+        {
+          "id": "LET-161",
+          "source": "jira",
+          "type": "Task",
+          "title": "Мелкий рефакторинг проверке адреса",
+          "url": "https://jira.example.com/browse/LET-161",
+          "closedAt": "2026-07-03"
+        },
+        {
+          "id": "LET-140",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить 500 ошибку в сервисе уведомлений",
+          "url": "https://jira.example.com/browse/LET-140",
+          "closedAt": "2026-07-01"
+        },
+        {
+          "id": "LET-151",
+          "source": "jira",
+          "type": "Task",
+          "title": "Добавить логирование в админке",
+          "url": "https://jira.example.com/browse/LET-151",
+          "closedAt": "2026-06-24"
+        },
+        {
+          "id": "LET-164",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить таймзону в форме заказа",
+          "url": "https://jira.example.com/browse/LET-164",
+          "closedAt": "2026-06-19"
+        },
+        {
+          "id": "LET-149",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить версию библиотеки для API статусов",
+          "url": "https://jira.example.com/browse/LET-149",
+          "closedAt": "2026-06-18"
+        },
+        {
+          "id": "LET-139",
+          "source": "jira",
+          "type": "Task",
+          "title": "Добавить логирование в API статусов",
+          "url": "https://jira.example.com/browse/LET-139",
+          "closedAt": "2026-06-18"
+        },
+        {
+          "id": "!22",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Правки конфигурации линтера",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/22",
+          "closedAt": "2026-06-18"
+        },
+        {
+          "id": "LET-169",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить 500 ошибку в кабинете клиента",
+          "url": "https://jira.example.com/browse/LET-169",
+          "closedAt": "2026-06-17"
+        },
+        {
+          "id": "LET-152",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить 500 ошибку в админке",
+          "url": "https://jira.example.com/browse/LET-152",
+          "closedAt": "2026-06-11"
+        },
+        {
+          "id": "LET-128",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить 500 ошибку в импорте товаров",
+          "url": "https://jira.example.com/browse/LET-128",
+          "closedAt": "2026-06-09"
+        },
+        {
+          "id": "LET-159",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Починить падение проверке адреса при пустом ответе",
+          "url": "https://jira.example.com/browse/LET-159",
+          "closedAt": "2026-06-05"
+        },
+        {
+          "id": "LET-130",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить 500 ошибку в API профиля",
+          "url": "https://jira.example.com/browse/LET-130",
+          "closedAt": "2026-06-04"
+        },
+        {
+          "id": "LET-122",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить опечатку в тексте корзине",
+          "url": "https://jira.example.com/browse/LET-122",
+          "closedAt": "2026-06-02"
+        },
+        {
+          "id": "!15",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "Обновление зависимостей",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/15",
+          "closedAt": "2026-06-02"
+        },
+        {
+          "id": "LET-120",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Починить падение корзине при пустом ответе",
+          "url": "https://jira.example.com/browse/LET-120",
+          "closedAt": "2026-05-25"
+        },
+        {
+          "id": "LET-148",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить опечатку в тексте API статусов",
+          "url": "https://jira.example.com/browse/LET-148",
+          "closedAt": "2026-05-22"
+        },
+        {
+          "id": "LET-166",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить версию библиотеки для модуле скидок",
+          "url": "https://jira.example.com/browse/LET-166",
+          "closedAt": "2026-05-20"
+        },
+        {
+          "id": "LET-143",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить таймзону в API статусов",
+          "url": "https://jira.example.com/browse/LET-143",
+          "closedAt": "2026-05-12"
+        },
+        {
+          "id": "LET-146",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить таймзону в выгрузке отчётов",
+          "url": "https://jira.example.com/browse/LET-146",
+          "closedAt": "2026-05-11"
+        },
+        {
+          "id": "LET-123",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Починить падение API статусов при пустом ответе",
+          "url": "https://jira.example.com/browse/LET-123",
+          "closedAt": "2026-05-11"
+        },
+        {
+          "id": "LET-121",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Починить падение сервисе уведомлений при пустом ответе",
+          "url": "https://jira.example.com/browse/LET-121",
+          "closedAt": "2026-05-04"
+        },
+        {
+          "id": "LET-127",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить опечатку в тексте выгрузке отчётов",
+          "url": "https://jira.example.com/browse/LET-127",
+          "closedAt": "2026-04-30"
+        },
+        {
+          "id": "LET-156",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить таймзону в проверке адреса",
+          "url": "https://jira.example.com/browse/LET-156",
+          "closedAt": "2026-04-28"
+        },
+        {
+          "id": "LET-147",
+          "source": "jira",
+          "type": "Task",
+          "title": "Обновить версию библиотеки для форме заказа",
+          "url": "https://jira.example.com/browse/LET-147",
+          "closedAt": "2026-04-10"
+        },
+        {
+          "id": "LET-154",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить 500 ошибку в модуле скидок",
+          "url": "https://jira.example.com/browse/LET-154",
+          "closedAt": "2026-04-08"
+        },
+        {
+          "id": "LET-150",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Некорректная валидация в форме заказа",
+          "url": "https://jira.example.com/browse/LET-150",
+          "closedAt": "2026-04-07"
+        },
+        {
+          "id": "LET-144",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить таймзону в корзине",
+          "url": "https://jira.example.com/browse/LET-144",
+          "closedAt": "2026-04-07"
+        },
+        {
+          "id": "!7",
+          "source": "gitlab",
+          "type": "MR",
+          "title": "LET-154: Исправить 500 ошибку в модуле скидок",
+          "url": "https://gitlab.example.com/backend/catalog/-/merge_requests/7",
+          "closedAt": "2026-04-07"
+        },
+        {
+          "id": "LET-135",
+          "source": "jira",
+          "type": "Task",
+          "title": "Мелкий рефакторинг кабинете клиента",
+          "url": "https://jira.example.com/browse/LET-135",
+          "closedAt": "2026-04-03"
+        },
+        {
+          "id": "LET-119",
+          "source": "jira",
+          "type": "Bug",
+          "title": "Исправить опечатку в тексте API профиля",
+          "url": "https://jira.example.com/browse/LET-119",
+          "closedAt": "2026-04-03"
+        },
+        {
+          "id": "LET-160",
+          "source": "jira",
+          "type": "Task",
+          "title": "Добавить логирование в выгрузке отчётов",
+          "url": "https://jira.example.com/browse/LET-160",
+          "closedAt": "2026-04-01"
+        },
+        {
+          "id": "LET-132",
+          "source": "jira",
+          "type": "Task",
+          "title": "Добавить логирование в форме заказа",
+          "url": "https://jira.example.com/browse/LET-132",
+          "closedAt": "2026-04-01"
+        }
+      ],
+      "evidence": [],
+      "visibleToManager": false,
+      "date": "2026-09-25",
+      "isTail": true
+    }
+  ]
+}
