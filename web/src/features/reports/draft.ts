@@ -43,12 +43,12 @@ const ROLE_LEAD: Record<string, string> = {
   'R-2': 'Провёл аудит облака и сам перенёс нагрузку на дешёвые ресурсы',
   'R-3': 'Спроектировал границы сервисов и провёл переключение трафика под фиче-флагом',
   'R-4': 'Написал клиент PayLine и вёл поэтапное включение по проценту трафика',
-  'R-5': 'Согласовал целевые уровни с продуктом и настроил алерты сам',
+  'R-5': 'Согласовал целевые уровни с продуктом и сам настроил алерты',
   'R-6': 'Переписал пайплайн: кеши, шарды тестов и шаблон для новых сервисов',
-  'R-7': 'Писал тесты и починил нестабильные, плюс собрал гайд для команды',
+  'R-7': 'Написал тесты, починил нестабильные и собрал гайд для команды',
   'R-8': 'Написал руководство и собрал песочницу, провёл воркшопы по архитектуре',
   'R-9': 'Подготовил и отрепетировал миграцию, а затем выкатил её на прод',
-  'R-10': 'Закрывал замечания аудита по одному, от токенов до зависимостей',
+  'R-10': 'Закрыл замечания аудита по очереди, от токенов до зависимостей',
   'R-11': 'Реализовал рассылку и вынес шаблоны в общую библиотеку',
   'R-12': 'Внедрил корреляционный идентификатор и единый формат логов',
   'R-13': 'Нашёл причину дублей и поправил импорт',
@@ -58,7 +58,7 @@ const ROLE_LEAD: Record<string, string> = {
 /** Влияние на команду и продукт. */
 const TEAM_LEAD: Record<string, string> = {
   'R-5': 'Дал команде общий язык для разговора о надёжности: SLO и алерты, по которым видно, когда платежи деградируют',
-  'R-6': 'Ускорил CI для всей команды, теперь разработчики меньше ждут пайплайн',
+  'R-6': 'Ускорил CI для всей команды: разработчики меньше ждут пайплайн',
   'R-7': 'Сделал тесты общей практикой команды: отчёт о покрытии в каждом merge request и гайд по тестам',
   'R-8': 'Новичкам стало проще войти в проект: у них есть чек-лист, руководство и безопасная песочница',
   'R-12': 'Команде легче разбирать инциденты: по одному идентификатору видно путь запроса через сервисы',
@@ -81,6 +81,12 @@ function lower1(s: string): string {
   return s ? s.charAt(0).toLowerCase() + s.slice(1) : s;
 }
 
+/** Строчная первая буква, но аббревиатуры (SLO, CI, p95) не трогаем. */
+function softLower(s: string): string {
+  if (s.length > 1 && s[1] === s[1].toUpperCase() && s[1] !== s[1].toLowerCase()) return s;
+  return lower1(s);
+}
+
 function counts(r: Result) {
   const jira = r.items.filter((i) => i.source === 'jira').length;
   const mr = r.items.filter((i) => i.source === 'gitlab').length;
@@ -89,21 +95,21 @@ function counts(r: Result) {
 
 function keyText(r: Result): string {
   const lead = KEY_LEAD[r.id] ?? `Сделал «${r.title}»: ${lower1(firstSentence(r.summary))}`;
-  return r.effect.trim() ? `${lead}: ${r.effect.trim()}.` : `${lead}.`;
+  return r.effect.trim() ? `${lead}. Итог: ${softLower(stripDot(r.effect.trim()))}.` : `${lead}.`;
 }
 
 function roleText(r: Result): string {
   const lead = ROLE_LEAD[r.id] ?? `Отвечал за «${r.title}» от первых задач до результата`;
   const { jira, mr } = counts(r);
   const bits: string[] = [];
-  if (jira) bits.push(`${jira} ${plural(jira, ['задача', 'задачи', 'задач'])} Jira`);
+  if (jira) bits.push(`${jira} ${plural(jira, ['задача', 'задачи', 'задач'])} в Jira`);
   if (mr) bits.push(`${mr} MR`);
-  return bits.length ? `${lead}: ${bits.join(' и ')} закрыто.` : `${lead}.`;
+  return bits.length ? `${lead} (${bits.join(' и ')}).` : `${lead}.`;
 }
 
 function teamText(r: Result): string {
   const lead = TEAM_LEAD[r.id] ?? `${TEAM_HINT_DEFAULT}: ${r.title}`;
-  return r.effect.trim() ? `${lead} (${r.effect.trim()}).` : `${lead}.`;
+  return r.effect.trim() ? `${lead} (${softLower(stripDot(r.effect.trim()))}).` : `${lead}.`;
 }
 
 function claimFor(r: Result, text: string): DraftClaim {
@@ -116,7 +122,7 @@ function nextClaims(results: Result[], top: Result | undefined): DraftClaim[] {
   const open = results.filter((r) => !r.effect.trim()).slice(0, 2);
   if (open.length) {
     return open.map((r) => ({
-      text: `Найду цифры и подтверждения по теме «${r.title}», чтобы результат можно было показать так же убедительно, как остальные.`,
+      text: `Найду цифры и подтверждения по теме «${r.title}», чтобы показать результат так же убедительно, как остальные.`,
       resultIds: [r.id],
     }));
   }

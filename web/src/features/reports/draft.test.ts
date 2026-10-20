@@ -56,4 +56,21 @@ describe('buildDraft', () => {
   it('детерминирован', () => {
     expect(buildDraft(demoMeta, visible, 'acme')).toEqual(buildDraft(demoMeta, visible, 'acme'));
   });
+
+  it('текст без канцелярита: нет «закрыто», двойных двоеточий и заглавной после двоеточия', () => {
+    for (const tpl of ['acme', 'free'] as const) {
+      const doc = buildDraft(demoMeta, visible, tpl);
+      for (const c of doc.sections.flatMap((s) => s.claims)) {
+        expect(c.text).not.toMatch(/закрыто/);
+        expect(c.text).not.toMatch(/: [А-ЯЁ][а-яё]/);
+        expect(c.text).not.toMatch(/\.\./);
+      }
+    }
+  });
+
+  it('аббревиатуры в эффекте не превращаются в строчные', () => {
+    const r = { ...confirmed[0], effect: 'SLO: доступность 99,95%' };
+    const doc = buildDraft(demoMeta, [r], 'free');
+    expect(doc.sections[0].claims[0].text).toContain('Итог: SLO: доступность 99,95%');
+  });
 });
