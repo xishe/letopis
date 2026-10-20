@@ -26,6 +26,14 @@ describe('demoStore', () => {
     expect(byId('R-1').status).toBe('confirmed');
   });
 
+  it('confirm: suggested с подсказкой автосбора берёт suggestedEffect', () => {
+    const hint = byId('R-11').suggestedEffect;
+    expect(hint).toBeTruthy();
+    st().confirm('R-11');
+    expect(byId('R-11').status).toBe('confirmed');
+    expect(byId('R-11').effect).toBe(hint);
+  });
+
   it('setEffect: needs_effect → confirmed, пустой эффект возвращает needs_effect', () => {
     st().setEffect('R-8', '−20%');
     expect(byId('R-8').status).toBe('confirmed');
@@ -112,7 +120,7 @@ describe('demoStore', () => {
     useDemo.setState({ results: demoResults.map((r) => ({ ...r })), reports: [] });
     localStorage.setItem(STORAGE_KEY, raw);
     await useDemo.persist.rehydrate();
-    expect(byId('R-11').status).toBe('needs_effect');
+    expect(byId('R-11').status).toBe('confirmed');
     expect(selectReportById(id)(st())?.resultIds).toEqual(['R-1', 'R-2']);
   });
 

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FBFBFC"/>
+  <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="#E6E6EA"/>
+  <g transform="translate(80 80) scale(3)">
+    <rect width="32" height="32" rx="8" fill="#5E5CE6"/>
+    <path d="M8 24.5 12.8 7.5H21V12.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="21" cy="17.6" r="2.1" fill="#fff"/>
+    <circle cx="21" cy="22.2" r="2.1" fill="#fff"/>
+    <circle cx="21" cy="26.8" r="2.1" fill="#fff"/>
+  </g>
+  <g font-family="Inter, 'Segoe UI', Arial, sans-serif">
+    <text x="196" y="150" font-size="52" font-weight="600" fill="#1B1C1F" letter-spacing="-0.5">Летопись</text>
+    <text x="80" y="285" font-size="50" font-weight="600" fill="#1B1C1F" letter-spacing="-1">Один раз зафиксировали</text>
+    <text x="80" y="353" font-size="50" font-weight="600" fill="#1B1C1F" letter-spacing="-1">результат — используйте</text>
+    <text x="80" y="421" font-size="50" font-weight="600" fill="#1B1C1F" letter-spacing="-1">во всех отчётах</text>
+    <text x="80" y="500" font-size="26" fill="#6B6C72">Подтверждённые результаты для performance review</text>
+  </g>
+  <g transform="translate(760 330)" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+    <rect x="0" y="0" width="360" height="150" rx="14" fill="#FFFFFF" stroke="#E6E6EA" stroke-width="2"/>
+    <circle cx="34" cy="38" r="11" fill="#2F9E6B"/>
+    <path d="M28.5 38.5 32.5 42.5 40 33.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="46" font-size="22" font-weight="600" fill="#1B1C1F">Ускорение поиска</text>
+    <text x="34" y="86" font-size="17" fill="#8A8B91">R-1 · Jira · GitLab</text>
+    <rect x="34" y="102" width="170" height="30" rx="7" fill="#E9F6EF"/>
+    <text x="48" y="124" font-size="17" font-weight="600" fill="#2F9E6B">p95 800 → 450 мс</text>
+  </g>
+</svg>

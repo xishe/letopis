@@ -1,4 +1,4 @@
-﻿import { describe, expect, it, beforeEach } from 'vitest';
+import { describe, expect, it, beforeEach } from 'vitest';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderApp as renderAt } from './test/renderApp';
@@ -12,13 +12,13 @@ beforeEach(() => {
 describe('routes', () => {
   it('/app без построенной хроники → онбординг', async () => {
     renderAt('/app');
-    expect(await screen.findByText(/Подключение источников/)).toBeInTheDocument();
+    expect(await screen.findByText(/Подключите источники|Подключение источников/)).toBeInTheDocument();
   });
 
   it('/app после buildChronicle → хроника, счётчик входящих в сайдбаре', async () => {
     useDemo.getState().buildChronicle();
     renderAt('/app');
-    expect(await screen.findByText(/Хроника — скоро/)).toBeInTheDocument();
+    expect(await screen.findByText(/Новое от автосбора/)).toBeInTheDocument();
     expect(screen.getByText('Входящие').parentElement).toHaveTextContent('3');
   });
 
@@ -27,7 +27,7 @@ describe('routes', () => {
     useDemo.getState().confirm('R-11');
     renderAt('/app/chronicle');
     await userEvent.click(await screen.findByText('Сбросить демо'));
-    expect(await screen.findByText(/Подключение источников/)).toBeInTheDocument();
+    expect(await screen.findByText(/Подключите источники|Подключение источников/)).toBeInTheDocument();
     expect(useDemo.getState().session.chronicleBuiltAt).toBeUndefined();
     expect(useDemo.getState().results.find((r) => r.id === 'R-11')!.status).toBe('suggested');
   });

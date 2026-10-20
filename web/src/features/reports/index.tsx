@@ -1,8 +1,12 @@
-﻿/** Заглушка: страницу заменяет агент своей задачи. */
+﻿import { Navigate, useParams } from 'react-router-dom';
+import { selectReportById, useDemo } from '../../store/demoStore';
+import DraftView from './DraftView';
+import NewReport from './NewReport';
+
 export default function ReportsPage() {
-  return (
-    <div className="flex h-full min-h-[320px] items-center justify-center text-base text-ink-3">
-      Отчёты — скоро здесь
-    </div>
-  );
+  const { id } = useParams();
+  const report = useDemo(selectReportById(id));
+  if (!id) return <NewReport />;
+  if (!report) return <Navigate to="/app/reports/new" replace />;
+  return <DraftView key={report.id} report={report} />;
 }

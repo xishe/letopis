@@ -57,7 +57,12 @@ export const useDemo = create<DemoState>()(
       confirm: (id) =>
         set((s) => ({
           results: patch(s.results, id, (r) =>
-            r.status !== 'suggested' ? r : { ...r, status: r.effect.trim() ? 'confirmed' : 'needs_effect' },
+            {
+              if (r.status !== 'suggested') return r;
+              // Подтверждение находки автосбора принимает подсказанный эффект, если своего нет.
+              const effect = r.effect.trim() || r.suggestedEffect?.trim() || '';
+              return { ...r, effect, status: effect ? 'confirmed' : 'needs_effect' };
+            },
           ),
         })),
 
