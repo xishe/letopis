@@ -55,7 +55,7 @@ export default function ChroniclePage() {
   );
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-8 pb-24 pt-8">
+    <div className="mx-auto w-full max-w-4xl px-8 pb-24 pt-8">
       <header className="mb-7 flex items-center justify-between gap-4">
         <h1 className="min-w-0 truncate text-xl font-semibold text-ink">Хроника · {person}</h1>
         <div className="flex shrink-0 items-center gap-2">
